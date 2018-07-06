@@ -2201,7 +2201,7 @@ spec:
       name: http
   selector:
     app: grafana
-
+  type: LoadBalancer
 ---
 # Source: istio/charts/ingressgateway/templates/service.yaml
 apiVersion: v1
@@ -2393,6 +2393,7 @@ spec:
   - name: http-prometheus
     protocol: TCP
     port: 9090
+  type: LoadBalancer
 
 ---
 # Source: istio/charts/security/templates/service.yaml
@@ -2437,6 +2438,7 @@ spec:
       name: http
   selector:
     app: servicegraph
+  type: LoadBalancer
 
 ---
 # Source: istio/charts/sidecarInjectorWebhook/templates/service.yaml

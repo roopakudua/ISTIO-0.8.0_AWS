@@ -110,4 +110,21 @@ milestone cannot be considered achieved if the issue isn't resolved.
 
 We don't annotate issues with Releases; Milestones are used instead. We don't use GitHub projects at all, that
 support is disabled for our organization.
-# ISTIO-0.8.0_AWS
+## ISTIO-0.8.0_AWS
+How this configured istio is different from the other [istio](https://istio.io/)?
+
+- **Background**. 
+The Istio that we get from here is not customised to work with kubernetes cluster running on AWS.It was difficult to access the user exposable services like(Prometheus,Servicegraph,Grafana Dashboard).
+
+- **What we have done?**.
+If you open [this](https://github.com/avkumar19/ISTIO-0.8.0_AWS/tree/master/install/kubernetes) you will find lot of YAML files related to Istio set up and our customisation for aws is currently available for these two setups:-
+
+   1. istio-demo.yaml (open [this](https://github.com/avkumar19/ISTIO-0.8.0_AWS/commit/d1b4f4c6fd7bb8c8339047ad93c119c28ef48591#diff-ea7fbc5ced6fe779070ff1df273a7af2) to view changes)
+
+   2. istio-demo-auth.yaml (open [this](https://github.com/avkumar19/ISTIO-0.8.0_AWS/commit/d1b4f4c6fd7bb8c8339047ad93c119c28ef48591#diff-ea7fbc5ced6fe779070ff1df273a7af2) to view changes).
+
+- **Reason for Doing So?**.
+Since we were not able to access user exposible services, So we created LoadBalancers based on the requirnment of those services. And after that we were able to access the services using their corresponding Loadbalancer's IP along with appropriate port no.
+
+- **ISTIO-0.8.0_AWS in Action**.
+For setting up the AWS configured istio we need clone this repository and apply YAML files using the same commands present in istio [documentaion](https://istio.io/docs/setup/kubernetes/quick-start/).After doing so you are all set to explore the amazing features of Istio. 
